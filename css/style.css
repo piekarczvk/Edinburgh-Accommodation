@@ -37,5 +37,5 @@
 .doc-btn{display:inline-flex;align-items:center;gap:.45rem;background:var(--off-white);border:1.5px solid var(--gray-200);border-radius:var(--r);padding:.55rem 1rem;font-size:.82rem;font-weight:600;color:var(--navy);transition:background var(--trans),border-color var(--trans),transform var(--trans)}
 .doc-btn svg{stroke:var(--navy);flex-shrink:0}
 .doc-btn:hover{background:var(--amber-pale);border-color:var(--amber);color:var(--navy-dark);transform:translateY(-2px)}
-@media(max-width:900px){.booking-steps,.bring-grid{grid-template-columns:1fr}.bank-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.bank-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.booking-steps,.bring-grid{grid-template-columns:1fr}.bank-grid{grid-template-columns:1fr 1fr}.booking-step{padding:1.25rem}.info-card{padding:1.25rem}.bring-card{padding:1.25rem}}
+@media(max-width:600px){.bank-grid{grid-template-columns:1fr}.booking-step{gap:.75rem;padding:1rem}.step-num{width:36px;height:36px;font-size:1rem}.info-card{padding:1rem}.bring-card{padding:1rem}.bank-value{word-break:break-all;font-size:.8rem}.doc-links{flex-direction:column}.doc-btn{width:100%;justify-content:center}.rent-example{padding:.9rem 1rem}.rent-example h4{font-size:.82rem}}
