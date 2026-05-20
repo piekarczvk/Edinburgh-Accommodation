@@ -143,6 +143,55 @@
     });
   }
 
+  /* ---- Lightbox ---- */
+  const lightbox     = document.getElementById('lightbox');
+  const lightboxImg  = document.getElementById('lightboxImg');
+  const lightboxCtr  = document.getElementById('lightboxCounter');
+  const lbCloseBtn   = document.getElementById('lightboxClose');
+  const lbPrev       = document.getElementById('lightboxPrev');
+  const lbNext       = document.getElementById('lightboxNext');
+  const galleryImgs  = Array.from(document.querySelectorAll('.gallery-item img'));
+  let lbIndex = 0;
+
+  function lbOpen(index) {
+    lbIndex = (index + galleryImgs.length) % galleryImgs.length;
+    lightboxImg.src = galleryImgs[lbIndex].src;
+    lightboxImg.alt = galleryImgs[lbIndex].alt;
+    lightboxCtr.textContent = (lbIndex + 1) + ' / ' + galleryImgs.length;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function lbDismiss() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  galleryImgs.forEach(function (img, i) {
+    img.parentElement.addEventListener('click', function () { lbOpen(i); });
+  });
+
+  lbCloseBtn.addEventListener('click', lbDismiss);
+  lbPrev.addEventListener('click', function () { lbOpen(lbIndex - 1); });
+  lbNext.addEventListener('click', function () { lbOpen(lbIndex + 1); });
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox-inner')) lbDismiss(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')      lbDismiss();
+    if (e.key === 'ArrowLeft')   lbOpen(lbIndex - 1);
+    if (e.key === 'ArrowRight')  lbOpen(lbIndex + 1);
+  });
+
+  // Touch swipe support
+  var lbTouchX = 0;
+  lightbox.addEventListener('touchstart', function (e) { lbTouchX = e.changedTouches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', function (e) {
+    var diff = lbTouchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? lbOpen(lbIndex + 1) : lbOpen(lbIndex - 1);
+  }, { passive: true });
+
   /* ---- Smooth scroll polyfill for older Safari ---- */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
