@@ -30,8 +30,8 @@
 .bring-card h3{font-size:1.05rem;margin-bottom:.75rem}
 .bring-card ul{display:flex;flex-direction:column;gap:.4rem;margin:.5rem 0}
 .bring-card ul li{font-size:.875rem;color:var(--gray-500);padding-left:1.3rem;position:relative;max-width:100%}
-.bring-card--yes ul li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700;font-size:.85rem}
-.bring-card--no ul li::before{content:"✕";position:absolute;left:0;color:#ef4444;font-weight:700;font-size:.85rem}
+.bring-card--yes ul li::before{content:"\2713";position:absolute;left:0;color:var(--green);font-weight:700;font-size:.85rem}
+.bring-card--no ul li::before{content:"\2715";position:absolute;left:0;color:#ef4444;font-weight:700;font-size:.85rem}
 .bring-card p{font-size:.875rem;color:var(--gray-500);max-width:100%;margin-top:.65rem}
 .doc-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.9rem}
 .doc-btn{display:inline-flex;align-items:center;gap:.45rem;background:var(--off-white);border:1.5px solid var(--gray-200);border-radius:var(--r);padding:.55rem 1rem;font-size:.82rem;font-weight:600;color:var(--navy);transition:background var(--trans),border-color var(--trans),transform var(--trans)}
