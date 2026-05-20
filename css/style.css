@@ -187,6 +187,14 @@ p  { max-width: 68ch; }
 
 /* Logo */
 .logo { display: flex; align-items: center; }
+.logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+.header.scrolled .logo-img { filter: brightness(0) invert(1); }
 .logo-text {
   font-size: clamp(.85rem, 2vw, 1rem);
   font-weight: 800;
@@ -196,6 +204,14 @@ p  { max-width: 68ch; }
 }
 .logo-accent { color: var(--amber); }
 .logo-ltd { font-weight: 400; opacity: .75; }
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+  margin-bottom: .25rem;
+}
 
 /* Nav */
 .nav {
@@ -397,6 +413,12 @@ p  { max-width: 68ch; }
   height: 40px;
   object-fit: contain;
   flex-shrink: 0;
+  border-radius: var(--r-sm);
+}
+.accred-logo--hmo {
+  width: 56px;
+  height: 40px;
+  object-fit: cover;
   border-radius: var(--r-sm);
 }
 .accred-chip strong { display: block; font-size: .9rem; color: var(--navy); }
@@ -895,6 +917,22 @@ p  { max-width: 68ch; }
 .contact-item p { color: rgba(255,255,255,.7); font-size: .875rem; margin: 0; max-width: none; }
 
 
+.contact-social { display: flex; gap: .75rem; margin-top: .5rem; }
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.75);
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  padding: .5rem 1rem;
+  border-radius: 99px;
+  transition: background var(--trans), color var(--trans);
+}
+.social-btn:hover { background: rgba(255,255,255,.2); color: #fff; }
+
 .contact-form {
   background: var(--white);
   border-radius: var(--r-xl);
@@ -990,6 +1028,20 @@ p  { max-width: 68ch; }
 }
 .footer-nav a:hover, .footer-contact a:hover { color: var(--amber); }
 .footer-contact p { font-size: .85rem; color: rgba(255,255,255,.55); max-width: none; }
+
+.footer-social { display: flex; gap: .75rem; margin-top: .75rem; }
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.6);
+  transition: background var(--trans), color var(--trans);
+}
+.footer-social a:hover { background: var(--amber); color: var(--navy-dark); }
 
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.08);
