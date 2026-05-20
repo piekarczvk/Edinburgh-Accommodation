@@ -88,6 +88,18 @@
     });
   });
 
+  /* ---- Map property tabs ---- */
+  const mapFrame = document.getElementById('mapFrame');
+  const mapGoogleLink = document.getElementById('mapGoogleLink');
+  document.querySelectorAll('.map-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.map-tab').forEach(function (t) { t.classList.remove('active'); });
+      this.classList.add('active');
+      if (mapFrame) mapFrame.src = this.dataset.src;
+      if (mapGoogleLink) mapGoogleLink.href = this.dataset.gmaps;
+    });
+  });
+
   /* ---- Contact form ---- */
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('formSuccess');
